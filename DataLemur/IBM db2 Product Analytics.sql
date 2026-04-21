@@ -1,3 +1,4 @@
+# https://datalemur.com/questions/sql-ibm-db2-product-analytics
 WITH cte AS (SELECT 
   e.employee_id,
   # Using COALESCE to get 0 for no query run by an employee
