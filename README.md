@@ -24,4 +24,4 @@ Sql-Portfolio/
 
 ## Connect
 
-Feel free to explore, suggest improvements, or reach out via [LinkedIn]([your-linkedin-url](https://www.linkedin.com/in/abhishek-roy22/)).
+Feel free to explore, suggest improvements, or reach out via [LinkedIn](https://www.linkedin.com/in/abhishek-roy22/).
