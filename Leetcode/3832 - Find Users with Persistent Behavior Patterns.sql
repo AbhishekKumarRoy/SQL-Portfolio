@@ -1,3 +1,6 @@
+# Problem 3832
+# https://leetcode.com/problems/find-users-with-persistent-behavior-patterns/description/
+
 # Using "Gaps and Island" to find the consecutive logins
 WITH first AS (
     SELECT 
