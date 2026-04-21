@@ -1,4 +1,6 @@
 # 1321. Restaurant Growth
+# https://leetcode.com/problems/restaurant-growth/description/
+
 # Write your MySQL query statement below
 WITH cte AS (
     SELECT 
