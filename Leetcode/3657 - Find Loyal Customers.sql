@@ -1,4 +1,4 @@
-# The problem number is 3657
+# The problem number is 3657 - Medium
 # https://leetcode.com/problems/find-loyal-customers/description/
 
 # Write your MySQL query statement below
