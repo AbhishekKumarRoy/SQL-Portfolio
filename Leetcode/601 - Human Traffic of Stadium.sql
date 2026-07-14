@@ -1,6 +1,3 @@
--- Problem number is 601 - Hard
--- https://leetcode.com/problems/human-traffic-of-stadium/description/
-
 -- Write your PostgreSQL query statement below
 SELECT 
     s.id,
@@ -12,7 +9,7 @@ JOIN
 JOIN 
     Stadium s2 ON s1.id = s2.id + 1
 WHERE 
-    s.people >= 100 AND s1.people >= 100 AND s2.people >= 100
+    s.people > 99 AND s1.people > 99 AND s2.people > 99
 
 UNION
 
@@ -26,7 +23,7 @@ JOIN
 JOIN 
     Stadium s2 ON s1.id = s2.id + 1
 WHERE 
-    s.people >= 100 AND s1.people >= 100 AND s2.people >= 100
+    s.people > 99 AND s1.people > 99 AND s2.people > 99
 
 UNION
 
@@ -40,5 +37,5 @@ JOIN
 JOIN 
     Stadium s2 ON s1.id = s2.id + 1
 WHERE 
-    s.people >= 100 AND s1.people >= 100 AND s2.people >= 100
+    s.people > 99 AND s1.people > 99 AND s2.people > 99
 ORDER BY id ASC
