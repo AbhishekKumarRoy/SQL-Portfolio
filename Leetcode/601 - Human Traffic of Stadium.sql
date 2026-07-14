@@ -1,41 +1,25 @@
+-- Problem number is 601 - Hard
+-- https://leetcode.com/problems/human-traffic-of-stadium/
+
 -- Write your PostgreSQL query statement below
+WITH cte AS (
+    SELECT 
+        id,
+        visit_date,
+        people,
+        id - ROW_NUMBER() OVER(ORDER BY id ASC) AS diff
+    FROM Stadium
+    WHERE people > 99
+)
 SELECT 
-    s.id,
-    s.visit_date,
-    s.people
-FROM Stadium s
-JOIN 
-    Stadium s1 ON s.id = s1.id + 1
-JOIN 
-    Stadium s2 ON s1.id = s2.id + 1
-WHERE 
-    s.people > 99 AND s1.people > 99 AND s2.people > 99
-
-UNION
-
-SELECT 
-    s1.id,
-    s1.visit_date,
-    s1.people
-FROM Stadium s
-JOIN 
-    Stadium s1 ON s.id = s1.id + 1
-JOIN 
-    Stadium s2 ON s1.id = s2.id + 1
-WHERE 
-    s.people > 99 AND s1.people > 99 AND s2.people > 99
-
-UNION
-
-SELECT 
-    s2.id,
-    s2.visit_date,
-    s2.people
-FROM Stadium s
-JOIN 
-    Stadium s1 ON s.id = s1.id + 1
-JOIN 
-    Stadium s2 ON s1.id = s2.id + 1
-WHERE 
-    s.people > 99 AND s1.people > 99 AND s2.people > 99
-ORDER BY id ASC
+    id,
+    visit_date,
+    people
+FROM cte
+WHERE diff IN (
+    SELECT diff
+    FROM cte
+    GROUP BY diff
+    HAVING COUNT(diff) > 2
+)
+ORDER BY visit_date ASC
