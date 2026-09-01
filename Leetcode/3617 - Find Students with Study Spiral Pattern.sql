@@ -1,7 +1,7 @@
 -- Problem number is 3617 - Hard
 -- https://leetcode.com/problems/find-students-with-study-spiral-pattern/description/
 
--- Write your PostgreSQL query statement below (Used Claude as the Testcases are wrong at the moment)
+-- Write your PostgreSQL query statement below
 
 WITH ordered AS (
     SELECT
@@ -24,7 +24,7 @@ student_gap_ok AS (
     SELECT student_id
     FROM ordered
     GROUP BY student_id
-    HAVING COALESCE(MAX(gap), 0) <= 2
+    HAVING COALESCE(MAX(gap), 0) < 3
 ),
 student_stats AS (
     SELECT
@@ -58,8 +58,8 @@ qualifying AS (
     FROM student_stats s
     JOIN student_gap_ok g ON g.student_id = s.student_id
     JOIN periodicity p ON p.student_id = s.student_id
-    WHERE s.n_subjects >= 3                     -- at least 3 distinct subjects
-      AND s.n_sessions >= 2 * s.n_subjects       -- at least 2 full cycles
+    WHERE s.n_subjects > 2                     -- at least 3 distinct subjects
+      AND s.n_sessions > 1 * s.n_subjects       -- at least 2 full cycles
       AND s.n_sessions % s.n_subjects = 0        -- whole number of cycles
       AND p.checked = p.matched                  -- every position matches its cycle predecessor
 )
