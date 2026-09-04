@@ -1,7 +1,20 @@
-# The problem number is 3657 - Medium
-# https://leetcode.com/problems/find-loyal-customers/description/
+-- The problem number is 3657 - Medium
+-- https://leetcode.com/problems/find-loyal-customers/description/
 
-# Write your MySQL query statement below
+-- 1) Write your PostgreSQL query statement below
+SELECT customer_id
+FROM customer_transactions
+GROUP BY customer_id
+HAVING
+    COUNT(transaction_type) FILTER(WHERE transaction_type = 'purchase') > 2
+    AND MAX(transaction_date) - MIN(transaction_date) > 29
+    AND COUNT(*) FILTER(
+        WHERE transaction_type = 'refund'
+    )::DECIMAL/COUNT(*)::DECIMAL < 0.2
+ORDER BY customer_id ASC
+
+    
+-- 2) Write your MySQL query statement below
 WITH purchase AS (
     SELECT customer_id
     FROM customer_transactions
