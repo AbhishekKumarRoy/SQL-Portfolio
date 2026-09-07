@@ -1,0 +1,2 @@
+-- Problem number is 3716 - Medium
+-- https://leetcode.com/problems/find-churn-risk-customers/
