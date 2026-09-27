@@ -1,24 +1,27 @@
 # 🗄️ SQL Portfolio
 
-A collection of SQL solutions to problems from **LeetCode** and **DataLemur**, built as a reference.
+A collection of SQL solutions to problems from **LeetCode**, **DataLemur** and **HackerRank**, built as a reference.
 
 ---
 
 ## About
 
-This repository contains my personal solutions to SQL problems from LeetCode and DataLemur. Each solution is written and tested by me, with brief notes where relevant.
+This repository contains my personal solutions to SQL problems from LeetCode, DataLemur and HackerRank. Each solution is written and tested by me, with brief notes where relevant.
 
 ## Platforms
 
 - [LeetCode](https://leetcode.com)
 - [DataLemur](https://datalemur.com)
+- [HackerRank](https://www.hackerrank.com/)
 
 ## Structure
 ```
 Sql-Portfolio/
 ├── Leetcode/
 │   └── problem-name.sql
-└── DataLemur/
+├── DataLemur/
+│   └── problem-name.sql
+└── HackerRank/
     └── problem-name.sql
 ```
 
